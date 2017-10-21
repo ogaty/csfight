@@ -7,46 +7,48 @@
         <title>Try C#.</title>
     </head>
     <body>
-        <h1>ViewModel Binding</h1>
-        <div class="row">
-            <h2>ViewModelのクラスを作る</h2>
-            まずはSampleViewModelとか作りましょ。<br>
-            インターフェースにINotifyPropertyChangedってのを入れること。<br>
-            <br>
-            んでインターフェース関数を定義。<br>
-            <pre>
-                    public event PropertyChangedEventHandler PropertyChanged;
-                    protected void OnPropertyChanged(string propertyname)
-                    {
-                        PropertyChangedEventHandler handler = PropertyChanged;
-                        if (handler != null)
+        <div class="container">
+            <h1>ViewModel Binding</h1>
+            <div class="row">
+                <h2>ViewModelのクラスを作る</h2>
+                まずはSampleViewModelとか作りましょ。<br>
+                インターフェースにINotifyPropertyChangedってのを入れること。<br>
+                <br>
+                んでインターフェース関数を定義。<br>
+                <pre>
+                        public event PropertyChangedEventHandler PropertyChanged;
+                        protected void OnPropertyChanged(string propertyname)
                         {
-                            PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+                            PropertyChangedEventHandler handler = PropertyChanged;
+                            if (handler != null)
+                            {
+                                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+                            }
                         }
-                    }
-            </pre>
-            何も変える必要無し。<br>
-            後は変数を２つprivateとpublicで定義します。<br>
-            <pre>
-                    private string _name;
-                    public string name 
-                    {
-                        get 
+                </pre>
+                何も変える必要無し。<br>
+                後は変数を２つprivateとpublicで定義します。<br>
+                <pre>
+                        private string _name;
+                        public string name 
                         {
-                            return _name;
+                            get 
+                            {
+                                return _name;
+                            }
+                            set
+                            {
+                                _name = value;
+                                OnPropertyChanged("name");
+                            }
                         }
-                        set
-                        {
-                            _name = value;
-                            OnPropertyChanged("name");
-                        }
-                    }
-            </pre>
-            んで今度はPage側。xaml.csってやつ。<br>
-            ここでthis.DataContenxt = SampleViewModel;<br>
-            と宣言。<br>
-            View側は&lt;TextBlock Text="{Binding name}"&gt;&lt;/TextBlock&gt;<br>
-            としておけば完了です。
+                </pre>
+                んで今度はPage側。xaml.csってやつ。<br>
+                ここでthis.DataContenxt = SampleViewModel;<br>
+                と宣言。<br>
+                View側は&lt;TextBlock Text="{Binding name}"&gt;&lt;/TextBlock&gt;<br>
+                としておけば完了です。
+            </div>
         </div>
     </body>
 </html>
