@@ -8,20 +8,12 @@
     </head>
     <body>
         <div class="container">
-            <h1>Try C#.</h1>
+            <h1>xamlのタグあれこれ</h1>
             <div class="row">
-                <div class="col-md-4">
-                <ul>
-                    <li>
-                    <a href="/trycs/xaml.html">xamlって何？</a>
-                    </li>
-                    <li>
-                    <a href="/trycs/xaml.html">xamlのタグあれこれ</a>
-                    </li>
-                    <li>
-                    <a href="/trycs/binding.html">ViewModel Binding</a>
-                    </li>
-                </div>
+                <h2>StackPanel</h2>
+                いわゆるdivタグのような感じ。
+                <h2>TextBlock</h2>
+                こいつはラベルですね。テキスト文字列を書く時に使います。
             </div>
         </div>
     </body>
