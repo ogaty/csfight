@@ -24,10 +24,17 @@
                 <h2>windowsの場合</h2>
                 これ、下手にthis.close()とかやると良くないんですよね。<br>
                 インスタンスが残ってたりして再作成時予期せぬ動作を引き起こします。<br>
-                Visibility = hiddenで対応したほうがいいです。
+                Visibility = hiddenで対応したほうがいいです。<br>
+                呼び出し元のデータや関数にアクセスするには<br>
+                wpfの場合はnewした後にメンバに親ウィンドウのインスタンスを渡しましょう。<br>
+                uwpの場合はNavigate/OnNavigatedToで。
                 <h2>macの場合</h2>
                 最初self.disposeとかやったけどうまくいかなくてあれー？ってやってた。<br>
                 こっちはDismissViewController(this)という形でクローズできます。<br>
+                呼び出し元のデータや関数にアクセスするには<br>
+                XxxViewController xxx = this.PresentingViewController as XxxViewController;<br>
+                <br>
+                って形で。
             </div>
         </div>
     </body>
