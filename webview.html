@@ -38,10 +38,8 @@
                 <p>
                     macの場合はstoryboardでWebViewを作り、outlet変数を設定。<br>
                     後は
-                    <pre><code class="csharp">
-                            let req = NSURLRequest(new NSURL(""))
-                            webview.loadRequest(req)
-                    </code></pre>
+                    <pre><code class="language-csharp">let req = NSURLRequest(new NSURL(""))
+                            webview.loadRequest(req)</code></pre>
                     こんな感じ？<br>
                     ローカルのhtmlを呼ぶ場合は<br>
                     web.LoadHtmlString(html, new NSUrl(new NSString(bundle), true));という形でhtmlそのものを指定します。<br>
