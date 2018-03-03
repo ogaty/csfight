@@ -24,30 +24,30 @@
         <div class="container">
             <h1>Outlineを扱う</h1>
             <div class="row">
-                <h2>Mac(storyBoard)の場合</h2>
-                OutlineってのはいわゆるTreeViewですね。<br>
-                基本的にはTableとほぼほぼ一緒。<br>
-                実際にデータが入っているクラスとNSOutlineViewDelegateを継承したクラス、NSOutlineViewDataSourceを継承したクラスですね。<br>
-                <p>
-                で、overrideする関数がちょっと違ってます。<br>
-                DataSource側は
-                </p>>
-                <pre>
-                    public override nint GetChildrenCount(NSOutlineView outlineView, Foundation.NSObject item)
-            
-                    public override bool ItemExpandable(NSOutlineView outlineView, Foundation.NSObject item)
-            
-                    public override Foundation.NSObject GetChild(NSOutlineView outlineView, nint childIndex, Foundation.NSObject item)
-                </pre>
-                <p>
-                    の３つが必要。Delegate側は
-                </p>
-                <pre>
-                    public override NSView GetView(NSOutlineView outlineView, NSTableColumn tableColumn, Foundation.NSObject item)
-                </pre>
-                <p>
-                    ってのを用意しましょう。
-                </p>
+                <div class="col-md-12">
+                    <h2>Mac(storyBoard)の場合</h2>
+                    OutlineってのはいわゆるTreeViewですね。<br>
+                    基本的にはTableとほぼほぼ一緒。<br>
+                    実際にデータが入っているクラスとNSOutlineViewDelegateを継承したクラス、NSOutlineViewDataSourceを継承したクラスですね。<br>
+                    <p>
+                    で、overrideする関数がちょっと違ってます。<br>
+                    DataSource側は
+                    </p>>
+                    <pre><code class="language-csharp">public override nint GetChildrenCount(NSOutlineView outlineView, Foundation.NSObject item)
+                
+                            public override bool ItemExpandable(NSOutlineView outlineView, Foundation.NSObject item)
+                    
+                            public override Foundation.NSObject GetChild(NSOutlineView outlineView, nint childIndex, Foundation.NSObject item)</code></pre>
+                    <p>
+                        の３つが必要。Delegate側は
+                    </p>
+                    <pre><code class="language-csharp">public override NSView GetView(NSOutlineView outlineView, NSTableColumn tableColumn, Foundation.NSObject item)
+                    </code>
+                    </pre>
+                    <p>
+                        ってのを用意しましょう。
+                    </p>
+                </div>
             </div>
         </div>
     </body>

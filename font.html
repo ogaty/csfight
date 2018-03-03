@@ -24,20 +24,22 @@
         <div class="container">
             <h1>Fontを埋め込む</h1>
             <div class="row">
-                <h2>uwpの場合</h2>
-                まずはAssetsなり適当なフォルダにttfファイルを入れます。<br>
-                ビルドアクションはコンテンツにしておきましょう。<br>
-                んで、後はFontFamilyを指定するだけですね。<br>
-                この際、フォントファイル名#フォント名という形になります。<br>
-                <pre><code class="language-csharp">txt.FontFamily = new FontFamily("ms-appx:///Assets/font.ttf#Font");</code></pre>
-                こんな感じ。
-                <h2>Macの場合(SkiaSharp)</h2>
-                SkiaSharpの場合ですが、こっちはassemblyを取得する必要があります。<br>
-                <pre><code class="language-csharp">System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
-                    SKManagedStream stream = new SKManagedStream(asm.GetManifestResourceStream("path/to/font.ttf"));
-                    paint.Typeface = SKTypeface.FromStream(stream);
-                </code></pre>
-                こんな感じ。
+                <div class="col-md-12">
+                    <h2>uwpの場合</h2>
+                    まずはAssetsなり適当なフォルダにttfファイルを入れます。<br>
+                    ビルドアクションはコンテンツにしておきましょう。<br>
+                    んで、後はFontFamilyを指定するだけですね。<br>
+                    この際、フォントファイル名#フォント名という形になります。<br>
+                    <pre><code class="language-csharp">txt.FontFamily = new FontFamily("ms-appx:///Assets/font.ttf#Font");</code></pre>
+                    こんな感じ。
+                    <h2>Macの場合(SkiaSharp)</h2>
+                    SkiaSharpの場合ですが、こっちはassemblyを取得する必要があります。<br>
+                    <pre><code class="language-csharp">System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
+                        SKManagedStream stream = new SKManagedStream(asm.GetManifestResourceStream("path/to/font.ttf"));
+                        paint.Typeface = SKTypeface.FromStream(stream);
+                    </code></pre>
+                    こんな感じ。
+                </div>
             </div>
         </div>
     </body>
