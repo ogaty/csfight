@@ -36,15 +36,11 @@
                 <p>
                     で、あとは必要な関数をoverrideしていきます。Delegate側は
                 </p>
-                <pre>
-                    public override NSView GetViewForItem(NSTableView tableView, NSTableColumn tableColumn, nint row)
-                </pre>
+                <pre><code class="language-csharp">public override NSView GetViewForItem(NSTableView tableView, NSTableColumn tableColumn, nint row)</code></pre>
                 <p>
                     DataSource側は
                 </p>
-                <pre>
-                    public override nint GetRowCount(NSTableView tableView)
-                </pre>
+                <pre><code class="language-csharp">public override nint GetRowCount(NSTableView tableView)</code></pre>
                 <p>
                     をoverrideしましょう。若干swiftよりも簡単かな？
                 </p>

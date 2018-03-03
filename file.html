@@ -24,33 +24,41 @@
         <div class="container">
             <h1>ファイル操作</h1>
             <div class="row">
+                <h2>Fileクラス</h2>
+                基本的にOpenで読み込み、Closeで閉じます。<br>
+                fopen、fcloseと変わらない感じ。<br>
+                FileModeオプションは下記のような感じですね。<br>
+                Open: 普通に開く、ファイルがないとエラー<br>
+                OpenOrCreate: ファイルが無いと生成して開く<br>
+                Create: 生成する、ファイルがあると上書き<br>
+                CreateNew: 生成する、ファイルがあるとエラー<br>
+                Append: 追記、ファイルが無いとエラー<br>
+                Truncate: ファイルを空にする、ファイルがないとエラー<br>
+            </div>
+
+            <div class="row">
                 <h2>wpfの場合</h2>
                 パス制約がないのでStreamReaderでさくっといけます。<br>
-                <pre>
-                    string html = "";
-                    using (StreamReader reader = new StreamReader(path)) {
-                        html = reader.ReadToEnd();
-                    }
-                </pre>
+                <pre><code class="language-csharp">string html = "";
+                        using (StreamReader reader = new StreamReader(path)) {
+                            html = reader.ReadToEnd();
+                        }
+                </code></pre>
             </div>
             <div class="row">
                 <h2>uwpの場合</h2>
                 async/awaitを使うことが必須です。<br>
-                <pre>
-                    var data = await systemFolder.GetFileAsync("file.txt");
-                </pre>
+                <pre><code class="language-csharp">var data = await systemFolder.GetFileAsync("file.txt");</code></pre>
                 こんな感じ。受け取る型もStorageFile型なので読み込みもめんどい。
             </div>
             <div class="row">
                 <h2>Macの場合</h2>
                 こちらはuwpみたいにしなくてもStreamReaderでOK。<br>
                 ただしストア用アプリにするなら変なパスを指定しないように。<br>
-                <pre>
-                    string html = "";
-                    using (StreamReader reader = new StreamReader(path)) {
-                        html = reader.ReadToEnd();
-                    }
-                </pre>
+                <pre><code class="language-csharp">string html = "";
+                        using (StreamReader reader = new StreamReader(path)) {
+                            html = reader.ReadToEnd();
+                        }</code></pre>
             </div>
         </div>
     </body>
