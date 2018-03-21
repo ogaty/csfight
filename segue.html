@@ -22,15 +22,20 @@
             
         
         <div class="container">
-            <h1>array</h1>
+            <h1>新しいウィンドウ</h1>
             <div class="row">
                 <div class="col-md-12">
-                    <h2>定義</h2>
-                    Cの*みたいに型の横に[]をつけます。<br>
-                    phpやJavaScriptみたいに[1, 2, 3]じゃなくて{1, 2, 3}というところに注意。<br>
-                    <pre><code class="language-csharp">int[] a = new int[] {1, 2, 3};</code></pre>
-                    <h2>２次元配列</h2>
-                    こいつは[,]という形で定義しましょ。
+                    <h2>新しいウィンドウを開く</h2>
+                    単純にstoryboardを開き、controlを押しながらボタンを対象のウィンドウにドラッグさせるだけです。<br>
+                    segueと呼ばれています。<br>
+                    <h2>segueで遷移した新しいウィンドウにパラメータを渡す</h2>
+                    遷移元のViewControllerでprepareForSegueってのをオーバーライドさせましょう。<br>
+                    んで遷移先のメンバ変数に値をセットすればOKです。<br>
+                    <pre><code class="language-csharp">public override void PrepareForSegue(NSStoryboardSegue segue, NSObject sender)
+                    {
+                        ((SearchLatLngViewController)segue.DestinationController).inputPlace = UserPlace.StringValue;
+                        base.PrepareForSegue(segue, sender);
+                    }</code></pre>
                 </div>
             </div>
         </div>
